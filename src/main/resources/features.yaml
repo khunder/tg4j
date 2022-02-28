@@ -1,0 +1,35 @@
+---
+features:
+  - name: feature1
+    defaultStrategy: default # not required by default
+    globalStatus : false
+    environment: # not required by default --> default = default
+      - name: dev
+        status: true
+        strategy: "default"
+      - name: "*"
+        status: true
+        strategy: "default"
+    properties:  # not required by default
+      - name : deny
+        value: true
+      - name: permit
+        value: "only_fag"
+  - name: feature2
+    defaultStrategy: default
+    globalStatus : true
+    environment:
+      - name: default
+
+
+---
+env:
+  - name: default
+  - name: dev
+    globalStrategy: "default"
+    properties:
+      - name: deny
+        value: true
+  - name: staging
+  - name: preprod
+  - name: prod
